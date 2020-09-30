@@ -11,6 +11,7 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { FormsModule } from '@angular/forms';
 
 import { ButtonsModule } from 'ngx-bootstrap/buttons';
+import { SpinnerComponent } from './components/spinner/spinner.component';
 
 
 
@@ -20,6 +21,7 @@ import { ButtonsModule } from 'ngx-bootstrap/buttons';
     CardDetailsPageComponent,
     ListComponent,
     OrderComponent,
+    SpinnerComponent,
 
   ],
   imports: [

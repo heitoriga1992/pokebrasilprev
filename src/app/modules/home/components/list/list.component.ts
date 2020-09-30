@@ -1,7 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { HomeService } from '../../services/home.service';
-import { Observable } from 'rxjs';
-import { CardsDetailModel } from '../../models/card-details.model';
 
 @Component({
   selector: 'app-list',
@@ -14,7 +12,7 @@ export class ListComponent implements OnInit {
   cards = [];
   @Input() term: string;
 
-  spinner: boolean = true;
+  spinner = true;
 
   constructor(
     private homeService: HomeService,

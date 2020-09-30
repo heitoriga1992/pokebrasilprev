@@ -1,61 +1,64 @@
+<app-spinner *ngIf="spinner"></app-spinner>
 <div class="row">
     <div class="col-12 list justify-content-between p-0">
-        <span class="spinner" *ngIf="spinner"></span>
         <div class="card border-0 p-0 justify-content-center">
             <div class="row">
 
-                <div class="col-6">
-                    <img src="{{detailsCard.card.imageUrlHiRes}}"
-                        alt="{{detailsCard.card.name}}" class="w-100 h-100
+                <div class="col-6 text-center">
+                    <img src="{{detailsCard.card.imageUrlHiRes}}" class="w-50
                         card-img">
                 </div>
                 <div class="col-6">
-                    <div class="py-3 d-flex justify-content-between flex-column
-                        h-100
-                        text-center">
-                        <h5 class="card-title">{{detailsCard.card.id}}</h5>
-                        <h5 class="card-title">{{detailsCard.card.name}}</h5>
-                        <p class="card-text">{{detailsCard.card.types}}</p>
-                        <ul class="card-text">
-                            Ataques:
-                            <li *ngFor="let attacks of detailsCard.card.attacks; let
-                                i=
-                                index" [attr.data-index]="i">
-                                <p>Nome: {{detailsCard.card.attacks[i].name}}</p>
-                                <p>Cursto de mana:
-                                    {{detailsCard.card.attacks[i].convertedEnergyCost}}</p>
-                                <p>Dano:{{detailsCard.card.attacks[i].damage}}</p>
-                                <p>Descrição:{{detailsCard.card.attacks[i].text}}</p>
-                                <ul>
-                                    Resistencia(s):
-                                    <li *ngFor="let resistances of
-                                        detailsCard.card.attacks[i].resistances;
-                                        let i= index" [attr.data-index]="i">
-                                        <p>Resistencia
-                                            á:{{detailsCard.card.attacks[i].resistances[i].type}}</p>
-                                        <p>Valor:{{detailsCard.card.attacks[i].resistances[i].value}}</p>
-                                    </li>
-                                </ul>
-                                <ul>
-                                    Fraqueza(s):
-                                    <li *ngFor="let weaknesses of
-                                        detailsCard.card.attacks[i].weaknesses;
-                                        let i= index" [attr.data-index]="i">
-                                        <p>Resistencia
-                                            á:{{detailsCard.card.attacks[i].weaknesses[i].type}}</p>
-                                        <p>Valor:{{detailsCard.card.attacks[i].weaknesses[i].value}}</p>
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
-                        <!-- ▪ Imagem em alta definição ▪ Nome
-        ▪ ID do Pokemon
-        ▪ Tipo(s)
-        ▪ Lista de ataques com:
-        ▪ Custo de “mana” ▪ Nome
-        ▪ Dano
-        ▪ Descrição
-        ▪ Resistencia(s) ▪ Fraqueza(s) -->
+                    <h2>{{detailsCard.card.name}}</h2>
+                    <p>
+                        {{detailsCard.card.id}} -
+                        {{detailsCard.card.types}}
+                    </p>
+                    <hr>
+                    <p>
+                        {{detailsCard.card.ability.text}}
+                    </p>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <h5>Ataques:</h5>
+                        <li *ngFor="let attacks of
+                            detailsCard.card.attacks; let
+                            i=
+                            index" [attr.data-index]="i"
+                            class="">
+                            <p>Cursto de mana:
+                                {{detailsCard.card.attacks[i].convertedEnergyCost}}</p>
+                            <p>Nome:
+                                {{detailsCard.card.attacks[i].name}}</p>
+                            <p>Dano:{{detailsCard.card.attacks[i].damage}}</p>
+                            <p
+                                *ngIf="detailsCard.card.attacks[i].text">Descrição:{{detailsCard.card.attacks[i].text}}</p>
+                            <ul
+                                *ngIf="detailsCard.card.attacks[i].resistances">
+                                Resistencia(s):
+                                <li *ngFor="let resistances of
+                                    detailsCard.card.attacks[i].resistances;
+                                    let i= index"
+                                    [attr.data-index]="i">
+                                    <p>Resistencia
+                                        á:{{detailsCard.card.attacks[i].resistances[i].type}}</p>
+                                    <p>Valor:{{detailsCard.card.attacks[i].resistances[i].value}}</p>
+                                </li>
+                            </ul>
+                            <ul
+                                *ngIf="detailsCard.card.attacks[i].weaknesses">
+                                Fraqueza(s):
+                                <li *ngFor="let weaknesses of
+                                    detailsCard.card.attacks[i].weaknesses;
+                                    let i= index"
+                                    [attr.data-index]="i">
+                                    <p>Resistencia
+                                        á:{{detailsCard.card.attacks[i].weaknesses[i].type}}</p>
+                                    <p>Valor:{{detailsCard.card.attacks[i].weaknesses[i].value}}</p>
+                                </li>
+                            </ul>
+                        </li>
                     </div>
                 </div>
             </div>

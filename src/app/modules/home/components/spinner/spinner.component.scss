@@ -1,0 +1,21 @@
+
+.spinner {
+    border: 8px solid black;
+    border-left-color: red;
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    position: absolute;
+    left: 0;
+    right: 0px;
+    margin-left: auto;
+    margin-right: auto;
+    z-index: 1;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
